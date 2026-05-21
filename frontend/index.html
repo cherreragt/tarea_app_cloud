@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mini Tasks</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        background: #f5f6f8;
+        color: #1f2328;
+      }
+      .container {
+        max-width: 720px;
+        margin: 32px auto;
+        background: #fff;
+        padding: 24px;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+      form {
+        display: grid;
+        gap: 12px;
+        margin: 16px 0 24px;
+      }
+      input[type="text"],
+      textarea {
+        padding: 10px 12px;
+        border: 1px solid #c7c9cc;
+        border-radius: 8px;
+        font-family: inherit;
+      }
+      textarea {
+        min-height: 80px;
+        resize: vertical;
+      }
+      button {
+        border: none;
+        background: #2f6feb;
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #eceef0;
+        cursor: pointer;
+      }
+      li.selected {
+        background: #f1f5ff;
+      }
+      .muted {
+        color: #6a737d;
+        font-size: 0.9rem;
+      }
+      .danger {
+        background: #d73a49;
+      }
+      .detail {
+        margin-top: 24px;
+        padding-top: 16px;
+        border-top: 1px solid #eceef0;
+      }
+      .detail h3 {
+        margin: 8px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Mini Tasks</h1>
+      <p id="status" class="muted"></p>
+      <form id="task-form">
+        <input
+          id="task-input"
+          type="text"
+          placeholder="Nueva tarea"
+          autocomplete="off"
+          required
+        />
+        <textarea
+          id="task-desc"
+          placeholder="Descripción de la tarea"
+          required
+        ></textarea>
+        <button type="submit">Agregar</button>
+      </form>
+      <ul id="task-list"></ul>
+      <section id="task-detail" class="detail">
+        <h2>Detalle</h2>
+        <p id="detail-empty" class="muted">
+          Selecciona una tarea para ver la descripción.
+        </p>
+        <div id="detail-content" hidden>
+          <h3 id="detail-title"></h3>
+          <p id="detail-desc"></p>
+        </div>
+      </section>
+    </main>
+    <script src="./config.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
