@@ -9,18 +9,8 @@ const app = express();
 
 const host = process.env.HOST || "0.0.0.0";
 const port = Number.parseInt(process.env.PORT || "4000", 10);
-const corsOrigins = process.env.CORS_ORIGIN
-  ? process.env.CORS_ORIGIN.split(",").map((origin) => origin.trim()).filter(Boolean)
-  : "*";
-
 app.use(express.json({ limit: "100kb" }));
-app.use(
-  cors({
-    origin: corsOrigins,
-    methods: ["GET", "POST", "DELETE"],
-    allowedHeaders: ["Content-Type"],
-  })
-);
+app.use(cors());
 
 const tasks = [
   {
